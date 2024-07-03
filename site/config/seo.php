@@ -13,4 +13,5 @@ return [
 		'twitter' => false,
 		'youtube' => false
 	],
+	'tobimori.seo.lang' => 'nl_NL',
 ];

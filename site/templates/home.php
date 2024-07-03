@@ -1,1 +1,1 @@
-<?php snippet('../templates/layout');
+<?php snippet('../templates/layout', ['header_hidden' => true]);

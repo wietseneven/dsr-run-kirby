@@ -1,0 +1,54 @@
+label: Content
+type: layout
+layouts:
+  - "1/1"
+  - "1/2, 1/2"
+  - "1/3, 2/3"
+  - "2/3, 1/3"
+  - "1/3, 1/3, 1/3"
+fieldsets:
+  - heading
+  - text
+  - list
+  - markdown
+  - image
+  - cover
+  - card
+settings:
+  fields:
+    container:
+      type: select
+      label: Container
+      default: container
+      options:
+        container: Container
+        full-width: Full width
+      width: 1/3
+    spacing:
+      type: select
+      label: Spacing
+      default: default
+      options:
+        default: Default
+        no-top: No top
+        no-bottom: No bottom
+        none: None
+      width: 1/3
+    background:
+      label: Achtergrond
+      type: select
+      options:
+        orange: Oranje
+        blue: Blauw
+        black: Zwart
+        transparent: Transparant
+      width: 1/3
+    class:
+      type: text
+      width: 1/2
+    id:
+      type: text
+      width: 1/2
+    image:
+      label: Background image
+      type: files

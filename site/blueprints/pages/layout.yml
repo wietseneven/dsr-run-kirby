@@ -8,13 +8,14 @@ tabs:
   pages: false
   model: false
   content:
-    label: content
+    label: Content
     icon: text
     columns:
       main:
         width: 3/4
         type: fields
         fields:
+          layout: fields/layout
           blocks: fields/blocks
       sidebar:
         width: 1/4

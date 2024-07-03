@@ -1,13 +1,13 @@
 <?php
 
 return [
-	'code' => 'de',
+	'code' => 'nl',
 	'default' => true,
 	'direction' => 'ltr',
 	'locale' => [
-		'LC_ALL' => 'de_DE'
+		'LC_ALL' => 'nl_NL'
 	],
-	'name' => 'Deutsch',
+	'name' => 'Nederlands',
 	'translations' => [],
 	'url' => '/'
 ];

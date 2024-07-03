@@ -1,0 +1,45 @@
+title: Cover
+icon: video
+preview: fields
+wysiwyg: true
+
+tabs:
+  content:
+    label: Content
+    fields:
+      topLine:
+        label: Bovenste regel
+        type: text
+        width: 1/3
+      middleLine:
+        label: Middelste regel
+        type: text
+        width: 1/3
+      bottomLine:
+        label: Onderste regel
+        type: text
+        width: 1/3
+      video:
+        label: Video
+        type: files
+        multiple: false
+        width: 1/3
+      buttons:
+        label: Buttons
+        type: structure
+        fields:
+          text:
+            label: Tekst
+            type: text
+          url:
+            label: URL
+            type: link
+          color:
+            label: Kleur
+            type: select
+            options:
+              primary: Primary
+              secondary: Secondary
+              tertiary: Tertiary
+        width: 3/3
+  advanced: tabs/blocks-advanced

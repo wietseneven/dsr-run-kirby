@@ -56,6 +56,7 @@ return [
 			'site' => Menu::site(),
 			'-',
 			'images' => Menu::page(null, 'images', page('page://images')),
+			'sponsors' => Menu::page(null, 'sponsors', page('page://sponsors')),
 			'-',
 			'forms' => Menu::page(null, 'survey', page('page://forms')),
 			'users',

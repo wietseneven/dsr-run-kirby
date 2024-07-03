@@ -1,0 +1,16 @@
+label: Styling
+fields:
+  background:
+    label: Achtergrond
+    type: select
+    options:
+      orange: Oranje
+      blue: Blauw
+      black: Zwart
+  icon:
+    label: Icoon
+    type: select
+    options:
+      map: Kaart
+      bookmark: Bladwijzer
+      tag: Tag
