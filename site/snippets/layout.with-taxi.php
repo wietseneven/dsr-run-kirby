@@ -33,7 +33,7 @@ if (json_decode(env('REQUIRES_LOGIN')) && !$kirby->user()) {
 		<div class="flex flex-col" data-taxi-view>
 			<?php snippet('core/skip-nav') ?>
 			<?php snippet('core/nav') ?>
-			<main class="flex-grow">
+			<main class="container flex-grow">
 				<div id="main"></div>
 				<?= $slot ?>
 			</main>

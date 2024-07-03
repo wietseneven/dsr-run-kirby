@@ -1,8 +1,9 @@
 import plugin from 'tailwindcss/plugin'
 import defaultTheme from 'tailwindcss/defaultTheme'
-import { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss'
 import formsPlugin from '@tailwindcss/forms'
 import typographyPlugin from '@tailwindcss/typography'
+import { breakpointsString as breakpoints } from "./src/utils/breakpoints"
 
 const variants = plugin(({ addVariant }) => {
   addVariant('not-last', '&:not(:last-child)')
@@ -14,7 +15,8 @@ const variants = plugin(({ addVariant }) => {
 export default {
   content: ['./site/**/*.php', './site/**/*.yml', './public/assets/**/*.svg', './src/**/*.ts'],
   future: {
-    hoverOnlyWhenSupported: true
+    hoverOnlyWhenSupported: true,
+		disableColorOpacityUtilitiesByDefault: true
   },
   theme: {
     fontFamily: {

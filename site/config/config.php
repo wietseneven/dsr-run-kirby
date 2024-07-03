@@ -40,9 +40,6 @@ return [
 	'cache' => [
 		'pages' => [
 			'active' => json_decode(env('KIRBY_CACHE')),
-			'type' => 'static',
-			'root'   =>  __DIR__ . '/../../public/__staticache/',
-			'prefix' => null
 		]
 	],
 	/** Build Env / Vite / etc. */
@@ -61,7 +58,7 @@ return [
 			'forms' => Menu::page(null, 'survey', page('page://forms')),
 			'users',
 			'plausible',
-			'retour'
+			'retour',
 		]
 	],
 	'ready' => fn () => [

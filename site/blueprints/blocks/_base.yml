@@ -1,0 +1,15 @@
+preview: fields
+wysiwyg: true
+
+tabs:
+  content:
+    label: tab.content.label
+    fields:
+  advanced:
+    label: tab.advanced.label
+    fields:
+      blockId:
+        label: field.blockId.label
+        type: slug
+        icon: false
+        width: 1/3

@@ -1,10 +1,11 @@
-title: super-editor
-description: super-editor-description
+title: role.superEditor.title
+description: role.superEditor.description
 
 permissions:
   access:
     system: false
     languages: false
+    backups: false
 
 # Hidden element to hide notice in user management
 # Remove if you want to implement fields for your users

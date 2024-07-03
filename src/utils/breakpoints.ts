@@ -1,32 +1,41 @@
-export const toRem = (rem: number) => {
-  return rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
+/* main breakpoints definition */
+export const breakpoints = {
+	xxl: 96,
+	xl: 72,
+	lg: 62,
+	md: 44,
+	sm: 29.5
+} as const
+
+export const remToPx = (rem: number) => {
+	return rem * Number.parseFloat(getComputedStyle(document.documentElement).fontSize)
 }
 
-export const breakpoints: Record<string, number> = {
-  sm: toRem(29.5),
-  md: toRem(44),
-  lg: toRem(62),
-  xl: toRem(80)
-}
+export const breakpointsString = Object.fromEntries(
+	Object.entries(breakpoints).map(([key, value]) => [key, `${value}rem` as `${number}rem`])
+) as { [key in keyof typeof breakpoints]: `${number}rem` }
 
-export const getBreakpointValue = (values: { [breakpoint: string | number]: any; _: any }) => {
-  let returnValue = values._
-  let lastBreakpoint: number
+export const getBreakpointValue = <T>(values: { [K in keyof typeof breakpoints | number | "_"]?: T }) => {
+	const viewportWidth = window.innerWidth
 
-  Object.entries(values).forEach(([breakpoint, value]) => {
-    let computedBreakpoint = toRem(Number(breakpoint))
-    if (breakpoint in breakpoints) {
-      computedBreakpoint = breakpoints?.[breakpoint]
-    }
+	// find the closest breakpoint
+	const closestBreakpoint = Object.entries(breakpoints).find(
+		([, breakpointValue]) => viewportWidth >= remToPx(breakpointValue)
+	)
 
-    if (lastBreakpoint < computedBreakpoint) {
-      return
-    }
+	if (closestBreakpoint && Object.hasOwn(values, closestBreakpoint[0])) {
+		return values[closestBreakpoint[0] as keyof typeof breakpoints]
+	}
 
-    if (window.innerWidth <= computedBreakpoint) {
-      returnValue = value
-    }
-  })
+	// nothing found yet, check if values has a rem value
+	const remEntry = Object.entries(values).find(([key]) => !Number.isNaN(Number(key)))
+	if (remEntry) {
+		const [remValue, value] = remEntry
+		if (viewportWidth >= remToPx(Number.parseFloat(remValue))) {
+			return value
+		}
+	}
 
-  return returnValue
+	// return fallback
+	return values._
 }
