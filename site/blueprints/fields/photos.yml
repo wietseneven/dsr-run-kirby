@@ -1,0 +1,11 @@
+label: Foto's
+type: files
+uploads:
+  template: gallery-image
+multiple: true
+layout: cards
+size: small
+image:
+  cover: false
+info: "{{ file.alt }}"
+query: page.images.filterBy('template', 'gallery-image')

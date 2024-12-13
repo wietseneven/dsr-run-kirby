@@ -9,11 +9,13 @@ layouts:
 fieldsets:
   - heading
   - text
+  - button
   - list
   - markdown
   - image
   - cover
   - card
+  - team
 settings:
   fields:
     container:

@@ -1,7 +1,7 @@
 <header class="print:hidden relative overflow-hidden flex flex-col text-white pt-[clamp(7rem,30vh,15rem)] gradient-overlay">
 	<?php snippet('picture', ['image' => $site->headerImage()->toFile(), 'class' => 'absolute inset-0']); ?>
 	<div class="relative max-w-7xl mx-auto z-20 w-[90%]">
-		<h1 class="mb-4 text-4xl sm:text-5xl md:text-7xl font-bold font-extra-expanded uppercase text-dsr-orange">
+		<h1 class="mb-4 text-4xl sm:text-5xl md:text-7xl font-bold font-extra-expanded uppercase text-dsr-orange max-w-6xl">
 			<?= $page->title() ?>
 		</h1>
 		<nav aria-label="Breadcrumb" class="print:hidden mt-8 py-8">

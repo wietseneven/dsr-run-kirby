@@ -17,6 +17,7 @@ tabs:
               - home
               - error
               - layout
+              - sponsoren
             image: icon
   navigation: tabs/navigation
   seo: seo/site

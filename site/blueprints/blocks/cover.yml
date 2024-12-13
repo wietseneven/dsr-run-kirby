@@ -40,6 +40,5 @@ tabs:
             options:
               primary: Primary
               secondary: Secondary
-              tertiary: Tertiary
         width: 3/3
   advanced: tabs/blocks-advanced

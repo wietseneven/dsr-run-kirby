@@ -13,7 +13,8 @@
 		</h1>
 		<div class="flex flex-wrap my-8 justify-center gap-x-8 gap-y-4">
 			<?php foreach ($block->buttons()->toStructure() as $button) : ?>
-				<a class="px-6 py-3 rounded bg-dsr-orange hover:bg-dsr-orange-400 inline-block text-black" href="<?= $button->url()->toUrl(); ?>">
+				<?php $isPrimary = $button->color()->text() == 'primary' ?>
+				<a class="px-6 py-3 rounded <?= e($isPrimary, 'bg-dsr-orange hover:bg-dsr-orange-400', 'bg-white hover:bg-dsr-orange-200') ?> inline-block text-black" href="<?= $button->url()->toUrl(); ?>">
 					<?= $button->text(); ?>
 				</a>
 			<?php endforeach ?>
@@ -34,9 +35,24 @@
 				</a>
 			</div>
 		<?php endif ?>
-		<div class="" data-controller="sponsor-carousel">
-			<div class="swiper-container" data-target="sponsor-carousel.container">
+		<div class="max-w-7xl mx-auto" data-controller="sponsor-carousel">
+			<div class="swiper" data-sponsor-carousel-target="slider">
 				<div class="swiper-wrapper" data-target="sponsor-carousel.wrapper">
+
+					<?php $sponsorPage = $site->find('page://sponsors') ?>
+					<?php foreach ($sponsorPage->sponsors() as $sponsor) : ?>
+						<?php $image = $sponsor->logo()->toFile() ?>
+						<div class="swiper-slide !h-20 !flex items-center justify-center" data-sponsor-carousel-target="slide">
+							<?php if ($sponsor->url()->isNotEmpty()) : ?>
+								<a class="text-center" href="<?= $sponsor->url(); ?>">
+									<?php snippet('picture', ['image' => $image, 'class' => 'max-h-16 max-w-64 aspect-[var(--ratio)] flex items-center justify-center', 'imgClass' => 'h-16 !object-contain']) ?>
+								</a>
+							<?php else : ?>
+								<?php snippet('picture', ['image' => $image, 'class' => 'max-h-16 max-w-64 aspect-[var(--ratio)] flex items-center justify-center', 'imgClass' => 'h-16 !object-contain']) ?>
+							<?php endif ?>
+						</div>
+					<?php endforeach ?>
+
 					<?php foreach ($block->sponsors()->toStructure() as $sponsor) : ?>
 						<div class="swiper-slide" data-target="sponsor-carousel.slide">
 							<a href="<?= $sponsor->url(); ?>">

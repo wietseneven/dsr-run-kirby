@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style> html, body, #map { height: 100%; width: 100%; padding: 0; margin: 0; } </style>
+	<!-- Leaflet (JS/CSS) -->
+	<link rel="stylesheet" href="/assets/libs/leaflet.css">
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+	<!-- Leaflet-KMZ -->
+	<script src="assets/libs/leaflet.polylineoffset.js"></script>
+	<script src="assets/libs/Leaflet.BigImage.min.js"></script>
+	<link rel="stylesheet" href="assets/libs/Leaflet.BigImage.min.css">
+</head>
+<body>
+	<div id="map"></div>
+	<script>
+		var map = L.map('map', {
+			preferCanvas: true, // recommended when loading large layers.
+			zoom: 19,
+			center: [52.2628, 7.00704],
+			// layers: [OpenTopoMap]
+		});
+		// map.setView(new L.LatLng(52.2538, 7.02234), 16);
+
+		var OpenTopoMap = L.tileLayer('https://tile.tracestrack.com/nl/{z}/{x}/{y}.png?key=a3fe8a706df3578fa5a68341b8bf57f9', {
+			maxZoom: 19,
+			// attribution: 'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
+			opacity: 0.90
+		});
+		OpenTopoMap.addTo(map);
+
+		var control = L.control.layers(null, null, { collapsed:false }).addTo(map);
+
+		function leafletIcon(feature){
+			if(feature.properties.name == "Wegafsluiting"){
+					return L.icon({iconUrl: '/assets/icons/traffic/c1.svg', iconSize: [32, 32],});
+			}
+			if (feature.properties.name.includes("Verkeersregelaar")) {
+				return L.icon({
+					iconUrl: "/assets/icons/traffic/traffic-controller.svg",
+					iconSize: [42, 42],
+					iconAnchor: [21, 21]
+				});
+			}
+			if (feature.properties.name.includes("Sponsordoeken")) {
+				return L.icon({
+					iconUrl: "/assets/icons/traffic/traffic-controller.svg",
+					iconSize: [42, 42],
+					iconAnchor: [21, 21]
+				});
+			}
+			return L.icon({
+					iconUrl: "/assets/icons/map-pin.svg",
+					iconSize: [42, 42],
+					iconAnchor: [21, 42]
+				});
+			console.log(feature);
+		}
+
+		const myMapId = '1QmmMflrnUFI6ERAIJWnJDUD5XLn_bzg';
+
+		// Functie om overlappende route secties samen te voegen
+		function mergeOverlappingRoutes(routes) {
+    const segmentsMap = new Map();
+
+    routes.forEach(route => {
+        const coordinates = route.geometry.coordinates;
+
+        for (let i = 0; i < coordinates.length - 1; i++) {
+            const segment = [coordinates[i], coordinates[i + 1]];
+            const segmentKey = JSON.stringify(segment);
+
+            if (segmentsMap.has(segmentKey)) {
+                segmentsMap.get(segmentKey).properties.lines.push(route.properties.name);
+            } else {
+                const newFeature = {
+                    type: "Feature",
+                    properties: {
+                        lines: [route.properties.name]
+                    },
+                    geometry: {
+                        type: "LineString",
+                        coordinates: segment
+                    }
+                };
+                segmentsMap.set(segmentKey, newFeature);
+            }
+        }
+    });
+
+    // Groepeer aaneengesloten segmenten met dezelfde route-informatie
+    const mergedSegments = [];
+    segmentsMap.forEach((segment, segmentKey) => {
+        const lastSegment = mergedSegments[mergedSegments.length - 1];
+
+        if (
+            lastSegment &&
+            JSON.stringify(lastSegment.geometry.coordinates[lastSegment.geometry.coordinates.length - 1]) === JSON.stringify(segment.geometry.coordinates[0]) &&
+            JSON.stringify(lastSegment.properties.lines) === JSON.stringify(segment.properties.lines)
+        ) {
+            lastSegment.geometry.coordinates.push(segment.geometry.coordinates[1]);
+        } else {
+            mergedSegments.push(segment);
+        }
+    });
+
+    return {
+        type: "FeatureCollection",
+        features: mergedSegments
+    };
+}
+
+		function pointToLayer(feature, latlng) {
+				return L.marker(latlng, {icon: leafletIcon(feature)});
+		}
+
+		async function getTrack() {
+			const response = await fetch(`/mymaps/${myMapId}/kmz`);
+			const result = await response.json();
+			// console.log(result);
+			const routes = result.find((item) => item.name === 'Routes');
+			const pleinIndeling = result.find((item) => item.name === 'Pleinindeling');
+			if (pleinIndeling) {
+				pleinIndeling.features.forEach(function(feature) {
+					L.geoJSON(feature, { pointToLayer: pointToLayer }).addTo(map);
+				});
+			}
+			const trafficControllers = result.find((item) => item.name === 'Verkeersregelaars');
+			const trafficControllerGroup = L.layerGroup();
+			if (trafficControllers) {
+				trafficControllers.features.forEach(function(feature) {
+					L.geoJSON(feature, { pointToLayer: pointToLayer }).addTo(trafficControllerGroup);
+				});
+			}
+			trafficControllerGroup.addTo(map);
+
+			const afsluitingen = result.find((item) => item.name === 'Afzettingen');
+			const afsluitingGroup = L.layerGroup();
+			if (afsluitingen) {
+				afsluitingen.features.forEach(function(feature) {
+					L.geoJSON(feature, {
+						pointToLayer: pointToLayer,
+						style: function(feature) {
+							return {color: "#ff0000", weight: 10, opacity: .5};
+						}
+					}).addTo(afsluitingGroup);
+				});
+			}
+			afsluitingGroup.addTo(map);
+
+			var lineWeight = 4;
+			var lineColors = {
+				'Route 5km': '#000',
+				'Route 8km': '#00b0e3',
+				'Route 14km': '#ff8100',
+			}
+
+			// manage overlays in groups to ease superposition order
+			var outlines = L.layerGroup();
+			var lineBg = L.layerGroup();
+			var busLines = L.layerGroup();
+			var busStops = L.layerGroup();
+
+			var ends = [];
+			function addStop(ll) {
+				for(var i=0, found=false; i<ends.length && !found; i++) {
+					found = (ends[i].lat == ll.lat && ends[i].lng == ll.lng);
+				}
+				if(!found) {
+					ends.push(ll);
+				}
+			}
+
+			var lineSegment, linesOnSegment, segmentCoords, segmentWidth;
+
+			const newRoutes = mergeOverlappingRoutes(routes.features);
+			console.log(newRoutes);
+
+			newRoutes.features.forEach(function(lineSegment) {
+          segmentCoords = L.GeoJSON.coordsToLatLngs(lineSegment.geometry.coordinates, 0);
+
+          linesOnSegment = lineSegment.properties.lines;
+          segmentWidth = linesOnSegment.length * (lineWeight + 1);
+
+          L.polyline(segmentCoords, {
+            color: '#000',
+            weight: segmentWidth + 5,
+            opacity: 1
+          }).addTo(outlines);
+
+          L.polyline(segmentCoords, {
+            color: '#fff',
+            weight: segmentWidth + 3,
+            opacity: 1
+          }).addTo(lineBg);
+
+          for(var j=0;j<linesOnSegment.length;j++) {
+            L.polyline(segmentCoords, {
+              color: lineColors[linesOnSegment[j]],
+              weight: lineWeight,
+              opacity: 1,
+              offset: j * (lineWeight + 1) - (segmentWidth / 2) + ((lineWeight + 1) / 2)
+            }).addTo(busLines);
+          }
+
+          addStop(segmentCoords[0]);
+          addStop(segmentCoords[segmentCoords.length - 1]);
+        });
+
+        ends.forEach(function(endCoords) {
+          L.circleMarker(endCoords, {
+            color: '#000',
+            fillColor: '#ccc',
+            fillOpacity: 1,
+            radius: 10,
+            weight: 4,
+            opacity: 1
+          }).addTo(busStops);
+        });
+
+        outlines.addTo(map);
+        lineBg.addTo(map);
+        busLines.addTo(map);
+        busStops.addTo(map);
+				console.log(busLines.toGeoJSON());
+
+				const baseLayers = {
+					'OpenTopoMap': OpenTopoMap,
+					// 'OpenStreetMap.HOT': osmHOT
+				};
+
+				const overlays = {
+					'Verkeersregelaars': trafficControllerGroup,
+					'Afzettingen': afsluitingGroup,
+				};
+
+				const layerControl = L.control;
+				layerControl.layers(baseLayers, overlays).setPosition('bottomleft').addTo(map).expand();
+
+				L.control.bigImage({position: 'topright'}).addTo(map);
+		}
+		getTrack();
+	</script>
+</body>
+</html>

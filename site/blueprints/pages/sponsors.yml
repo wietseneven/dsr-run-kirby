@@ -1,16 +1,23 @@
-title: sponsors
+title: page.sponsors.title
 image:
-  icon: folder
-  back: 'var(--theme-primary)'
-  color: 'var(--theme-accent)'
+  icon: server
+  back: "var(--theme-primary)"
+  color: "var(--theme-accent)"
 
 options:
-  preview: false
-  delete: false
+  # access
   changeSlug: false
   changeStatus: false
-  duplicate: false
+  # changeTemplate
   changeTitle: false
+  # create
+  delete: false
+  duplicate: false
+  # list
+  move: false
+  preview: false
+  # sort
+  update: true
 
 status:
   draft: false
@@ -19,11 +26,56 @@ status:
 
 tabs:
   list:
-    label: list-view
+    label: tab.list.label
     icon: list-bullet
     sections:
+      fields:
+        type: fields
+        fields:
+          sponsors:
+            label: section.sponsors.label
+            type: structure
+            fields:
+              name:
+                label: Name
+                type: text
+              url:
+                label: URL
+                type: url
+              logo:
+                label: Logo
+                type: files
+                uploads:
+                  parent: site.find('page://images')
+                  template: image
+                multiple: false
+                image:
+                  cover: false
+                info: "{{ file.alt }}"
+                query: site.find('page://images').images.filterBy('template', 'image')
+              visible:
+                label: Zichtbaar
+                type: toggle
+                default: true
+                width: 1/3
+              priority:
+                label: Priority
+                type: select
+                options:
+                  low: Low
+                  medium: Medium
+                  high: High
+                width: 1/3
+              editions:
+                label: Edities
+                type: multiselect
+                width: 1/3
+                options:
+                  2024: 2024
+                  2025: 2025
+                  2026: 2026
       list:
-        headline: sponsors
+        label: section.sponsors.label
         type: files
         template: image
         layout: table
@@ -37,7 +89,7 @@ tabs:
             label:
               de: Alt-Text
               en: Alt text
-            value: '{{ file.alt }}'
+            value: "{{ file.alt }}"
           tags:
             label:
               de: Schlagwörter
@@ -45,11 +97,11 @@ tabs:
             type: tags
         sortBy: filename desc
   grid:
-    label: grid-view
+    label: tab.grid.label
     icon: grid
     sections:
       grid:
-        label: images
+        label: section.images.label
         type: files
         template: image
         layout: cardlets
@@ -57,5 +109,5 @@ tabs:
         uploads:
           template: image
         info: '{{ file.alt.isNotEmpty ? file.filename : "" }}'
-        text: '{{ file.alt.or(file.filename) }}'
+        text: "{{ file.alt.or(file.filename) }}"
         sortBy: filename desc

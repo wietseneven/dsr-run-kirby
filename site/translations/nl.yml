@@ -1,39 +1,66 @@
 # ARIA
-skip-navigation: Skip Navigation
+aria.skipNavigation: Navigatie overslaan
 
-# Panel
-admin: Admin
-admin-description: Has access to all content and administrative tools.
-admin-tools: Admin Tools
-advanced: Geavanceerd
-block-id: Uniek ID (Anchor)
-caching: Caching
-content: Content
-download-content: Download content (.zip)
-error: Error pagina
-flush-cache: Cache leegmaken
-footer: Footer
-global-settings: Globale instellingen
-grid-view: Grid weergave
-home: Home
-image: Afbeelding
-image-alt-help: The alternative text should help users with visual impairments & search engine crawlers understand the content of the image.
-image-alt: Alternative Text/Image Description
-images: Afbeeldingen
-internal-tags: Interne tags
-internal-tags-help: Tags are used for internal search and can help you organize your images.
-layout-page: Layout pagina
-list-view: Lijst weergave
-navigation: Navigatie
-other: Other
-overview: Overzicht
-pages: Pagina's
-super-editor: Super Editor
-super-editor-description: Has access to all content, but no administrative tools.
-text: Text
-link: Link
-videos: Video's
-video: Video
-thumbnail: Thumbnail
-sponsors: Sponsors
-sponsor: Sponsor
+# Social Media
+twitter: Twitter
+facebook: Facebook
+instagram: Instagram
+linkedin: LinkedIn
+youtube: YouTube
+vimeo: Vimeo
+
+# Rollen
+role.admin.title: Beheerder
+role.admin.description: Heeft toegang tot alle inhoud en administratieve hulpmiddelen.
+role.superEditor.title: Super Editor
+role.superEditor.description: Heeft toegang tot alle inhoud, maar geen administratieve hulpmiddelen.
+
+# Tabs
+tab.content.label: Inhoud
+tab.advanced.label: Geavanceerd
+tab.grid.label: Rasterweergave
+tab.list.label: Lijstweergave
+tab.pages.label: Pagina's
+tab.navigation.label: Navigatie & Footer
+
+# Bestanden
+file.image.title: Afbeelding
+file.image.alt.label: Alternatieve tekst
+file.image.alt.help: De alternatieve tekst is bedoeld om gebruikers met een visuele beperking en zoekmachine crawlers te helpen de inhoud van de afbeelding te begrijpen.
+file.video.title: Video
+
+# Pagina's
+page.layout.title: Lay-out pagina
+page.videos.title: Video's
+page.images.title: Afbeeldingen
+page.sponsors.title: Sponsoren
+page.error.title: Foutpagina
+page.home.title: Startpagina
+
+# Velden
+field.blocks.label: Inhoud
+field.image.label: Afbeelding
+
+field.link.label: Link
+field.link.label.label: Label
+field.link.link.label: Link
+field.link.newTab.label: Openen in nieuw tabblad?
+
+field.blockId.label: Unieke ID (anker)
+
+field.pages.label: Pagina's
+field.text.label: Tekst
+
+field.navigation.label: Navigatie
+field.footer.label: Footer
+
+# Secties
+section.images.label: Alle afbeeldingen
+section.sponsors.label: Alle sponsoren
+section.videos.label: Alle video's
+section.children.label: Subpagina's
+
+# Overige
+site.title: Site
+
+sponsors: Sponsoren

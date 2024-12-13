@@ -1,0 +1,441 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.012978593348862, 52.26185723846561],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.0080869237386025, 52.263941645951576],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersbord 30km/h",
+				"description": "Alleen aanwezig bij hoogwater"
+			},
+			"geometry": {
+				"coordinates": [7.018081421807267, 52.25046232791016],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.013983137193236, 52.24045088223758],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.015396696360199, 52.25311944084572],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.015534352239058, 52.252729167722805],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.013024500230699, 52.26190129639082],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Hoogwater verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.015874244040987, 52.256372865700996],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.011851655616084, 52.262125768269044],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.010642523864391, 52.26256204723572],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.010576488157483, 52.26266641965944],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Hoogwater verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.015784471806228, 52.256567877682755],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Hoogwater verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.014679722834444, 52.2532588432353],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Hoogwater verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.016044691803813, 52.2510063629218],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Hoogwater verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.015702105374345, 52.251109250480425],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersbord 30km/h",
+				"description": "Alleen aanwezig bij hoogwater"
+			},
+			"geometry": {
+				"coordinates": [7.013708702986406, 52.25151595541752],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Hoogwater verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.008255910109767, 52.243221524288685],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Hoogwater verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.0084678713956805, 52.24299710176891],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Pionnen",
+				"description": "Alleen bij hoogwater, scheidt deelnemers met andere weggebruikers."
+			},
+			"geometry": {
+				"coordinates": [
+					[7.008850955289574, 52.242805231384324],
+					[7.008999423358233, 52.24272406215164],
+					[7.010399265143462, 52.241792228725956],
+					[7.010505313762792, 52.24175001977977],
+					[7.010680293986496, 52.241720798178136],
+					[7.011035556863874, 52.24168508286138],
+					[7.011258258965938, 52.24163962696238]
+				],
+				"type": "LineString"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.014379665026695, 52.24023872907739],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.031454486498461, 52.241828553063925],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.031513949287898, 52.241750529739676],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.025890530668619, 52.2503997333323],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.023220503377473, 52.25040306150905],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.023381985326694, 52.2504839478224],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.023009607684145, 52.26013524510881],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.026053853893444, 52.26223603326656],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Pionnen",
+				"description": "Alleen bij hoogwater, scheidt deelnemers met andere weggebruikers."
+			},
+			"geometry": {
+				"coordinates": [
+					[7.0179269031144145, 52.26247077657908],
+					[7.017468318580967, 52.26248383120222],
+					[7.016572479025513, 52.26240876706453],
+					[7.0163698486502994, 52.26238265776914],
+					[7.01452823366165, 52.2618305014762],
+					[7.014016325345011, 52.26177175477466],
+					[7.013691050268392, 52.261781545896724],
+					[7.013307119030458, 52.26181091925102],
+					[7.013029835358765, 52.261882720701294]
+				],
+				"type": "LineString"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.010144112199413, 52.26444038969913],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Verkeersregelaar",
+				"description": "Stopt weggebruikers wanneer er deelnemers aan komen. Wanneer er geen deelnemers zijn, mag het verkeer gewoon door rijden."
+			},
+			"geometry": {
+				"coordinates": [7.0098020412827395, 52.26402398122892],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Wegafsluiting",
+				"description": ""
+			},
+			"geometry": {
+				"coordinates": [7.008656400654629, 52.261389736333484],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Wegafsluiting",
+				"description": ""
+			},
+			"geometry": {
+				"coordinates": [7.010575698825291, 52.26261117353313],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Wegafsluiting",
+				"description": ""
+			},
+			"geometry": {
+				"coordinates": [7.0084341, 52.2638266, 0],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Wegafsluiting",
+				"description": ""
+			},
+			"geometry": {
+				"coordinates": [7.0081186, 52.2639159, 0],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Wegafsluiting",
+				"description": ""
+			},
+			"geometry": {
+				"coordinates": [7.006460517709964, 52.2634054680426],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Wegafsluiting",
+				"description": ""
+			},
+			"geometry": {
+				"coordinates": [7.0061644, 52.2624649, 0],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Wegafsluiting",
+				"description": ""
+			},
+			"geometry": {
+				"coordinates": [7.006218766547327, 52.26243907206503],
+				"type": "Point"
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Wegafsluiting",
+				"description": ""
+			},
+			"geometry": {
+				"coordinates": [7.007892065371327, 52.2617368611994],
+				"type": "Point"
+			}
+		}
+	]
+}

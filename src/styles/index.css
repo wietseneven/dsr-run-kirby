@@ -1,100 +1,106 @@
-@import './fonts.css';
+@import "./fonts.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  svg {
-    @apply w-full h-full;
-  }
+	svg {
+		@apply w-full h-full;
+	}
 
-  /* Fix Safari issue related to <summary> / <details> arrow */
-  details > summary.list-none::-webkit-details-marker,
-  details > summary.list-none::marker {
-    display: none;
-  }
+	/* Fix Safari issue related to <summary> / <details> arrow */
+	details > summary.list-none::-webkit-details-marker,
+	details > summary.list-none::marker {
+		display: none;
+	}
 
-  /* https://defensivecss.dev/tip/flexbox-min-content-size/ */
-  * {
-    min-height: 0;
-    min-width: 0;
-  }
+	/* https://defensivecss.dev/tip/flexbox-min-content-size/ */
+	* {
+		min-height: 0;
+		min-width: 0;
+	}
 }
 
 @layer components {
-  .card {
-    @apply rounded-xl p-6 xl:p-8;
+	.card {
+		@apply rounded-xl p-6 xl:p-8;
 
-    & .prose p:first-of-type:has(+ p) {
-      @apply text-lg;
-    }
-  }
+		& .prose p:first-of-type:has(+ p) {
+			@apply text-lg;
+		}
+	}
 
-  .card-orange {
-    @apply bg-dsr-orange has-[.link-cover]:hover:bg-dsr-orange-600;
+	.text-section {
+		& .prose p:first-of-type:has(+ p) {
+			@apply text-lg;
+		}
+	}
 
-    & .prose {
-      --tw-prose-headings: theme('colors.black');
-      --tw-prose-body: theme('colors.black');
-    }
-  }
+	.card-orange {
+		@apply bg-dsr-orange has-[.link-cover]:hover:bg-dsr-orange-600;
 
-  .card-blue {
-    @apply bg-dsr-blue;
+		& .prose {
+			--tw-prose-headings: theme("colors.black");
+			--tw-prose-body: theme("colors.black");
+		}
+	}
 
-    & .prose {
-      --tw-prose-headings: theme('colors.white');
-      --tw-prose-body: theme('colors.black');
-    }
-  }
+	.card-blue {
+		@apply bg-dsr-blue;
 
-  .card-black {
-    @apply bg-black;
+		& .prose {
+			--tw-prose-headings: theme("colors.white");
+			--tw-prose-body: theme("colors.black");
+		}
+	}
 
-    & .prose {
-      --tw-prose-headings: theme('colors.dsr-orange.DEFAULT');
-      --tw-prose-body: theme('colors.white');
-    }
+	.card-black {
+		@apply bg-black;
 
-    & [data-block='image'],
-		& [data-block='markdown']:has(iframe) {
-      @apply sm:-mt-16 [&_iframe]:rounded-xl;
-    }
-  }
+		& .prose {
+			--tw-prose-headings: theme("colors.dsr-orange.DEFAULT");
+			--tw-prose-body: theme("colors.white");
+		}
+
+		& [data-block="image"],
+		& [data-block="markdown"]:has(iframe) {
+			@apply lg:-mt-16 [&_iframe]:rounded-xl;
+		}
+	}
 }
 
 @layer utilities {
-  .font-condensed {
-    font-stretch: condensed;
-  }
-  .font-expanded {
-    font-stretch: expanded;
-  }
-  .font-extra-expanded {
-    font-stretch: extra-expanded;
-  }
-  .font-ultra-expanded {
-    font-stretch: ultra-expanded;
-  }
+	.font-condensed {
+		font-stretch: condensed;
+	}
+	.font-expanded {
+		font-stretch: expanded;
+	}
+	.font-extra-expanded {
+		font-stretch: extra-expanded;
+	}
+	.font-ultra-expanded {
+		font-stretch: ultra-expanded;
+	}
 
-  .gradient-overlay::before,
-  .gradient-overlay::after {
-    @apply absolute w-full bg-gradient-to-b from-black to-transparent z-10;
+	.gradient-overlay::before,
+	.gradient-overlay::after {
+		@apply absolute w-full bg-gradient-to-b from-black to-transparent z-10;
 
-    content: '';
-    height: 40%;
-  }
+		content: "";
+		height: 40%;
+	}
 
-  .gradient-overlay::before {
-    @apply top-0;
-  }
+	.gradient-overlay::before {
+		@apply top-0;
+	}
 
-  .gradient-overlay::after {
-    @apply bottom-0 bg-gradient-to-t;
+	.gradient-overlay::after {
+		@apply bottom-0 bg-gradient-to-t;
 
-    height: 70%;
-  }
+		height: 70%;
+	}
 
 	.link-cover {
 		@apply before:inset-0 before:absolute;

@@ -36,6 +36,13 @@ columns:
   - width: 3/4
     type: fields
     fields:
+      edition:
+        label: Editie
+        type: select
+        options:
+          2024: 2024
+          2025: 2025
+          2026: 2026
       headerImage:
         label: Standaard header afbeelding
         required: true

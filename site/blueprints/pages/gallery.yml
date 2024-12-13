@@ -1,0 +1,39 @@
+title: Gallery
+image:
+  icon: camara
+  back: "var(--theme-accent)"
+  color: "var(--theme-primary)"
+
+options:
+  # access
+  # changeSlug
+  # changeStatus
+  # changeTemplate
+  # changeTitle
+  # create
+  # delete
+  # duplicate
+  # list
+  # move
+  # preview
+  # sort
+  # update
+
+tabs:
+  content:
+    label: tab.content.label
+    icon: text
+    columns:
+      main:
+        width: 3/4
+        type: fields
+        sections:
+          # photos: fields/photos
+          photos:
+            label: Gallery
+            type: files
+            template: gallery-image
+            layout: cards
+            size: tiny
+
+  seo: seo/page

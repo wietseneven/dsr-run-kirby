@@ -1,0 +1,19 @@
+<svg data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+	<defs>
+		<clipPath id="a">
+			<path style="stroke-width:0;fill:none"
+				d="M378.3 44H134L11.9 255.6 134 467.1h244.3l122.2-211.5L378.3 44z" />
+		</clipPath>
+	</defs>
+	<g style="clip-path:url(#a)">
+		<path style="fill:#ff0;stroke-width:0" d="M11.6 11.5h488.9v68.8H11.6z" />
+		<path style="fill:#f15a24;stroke-width:0" d="M11.6 80.3h488.9v420.1H11.6z" />
+		<path style="stroke-miterlimit:10;fill:none;stroke:#fff;stroke-width:32px"
+			d="m256 157.1 114.1 197.7H141.9L256 157.1z" />
+		<path
+			d="M447 65H11.6v381.9h488.9V65H447ZM26.8 95.6H65v89.8H26.8V95.6ZM65 296.1H26.8v-80.2H65v80.2ZM26.8 416.4v-89.8H65v89.8H26.8Zm68.8 0V95.6h320.8v320.8H95.6ZM447 215.9h38.2v80.2H447v-80.2Zm38.2 200.5H447v-89.8h38.2v89.8ZM447 185.3V95.5h38.2v89.8H447Z"
+			style="fill:#fff;stroke-width:0" />
+	</g>
+	<path style="stroke:#f15a24;stroke-width:23px;stroke-miterlimit:10;fill:none"
+		d="M384 34.3H128L0 256l128 221.7h256L512 256 384 34.3z" />
+</svg>

@@ -14,7 +14,7 @@ snippet('layout', slots: true); ?>
 	<?php /*
 	card-black card-orange card-blue
 	*/ ?>
-	<section class="grid gap-6 lg:gap-8 lg:grid-cols-12<?php e($layout->background()->isNotEmpty(), ' card card-' . $layout->background()) ?><?php e($layout->container() == 'full-width', '', ' max-w-7xl mx-auto z-20 w-[90%]') ?><?php e(in_array($layout->spacing(), ['default', 'no-bottom']), ' mt-24') ?><?php e(in_array($layout->spacing(), ['default', 'no-top']), ' mb-12') ?>" id="<?= $layout->id() ?>">
+	<section class="grid gap-6 lg:gap-8 lg:grid-cols-12<?php e(in_array($layout->background(), ['orange', 'blue', 'black']), ' card card-' . $layout->background()) ?><?php e($layout->container() == 'full-width', '', ' max-w-7xl mx-auto z-20 w-[90%]') ?><?php e(in_array($layout->spacing(), ['default', 'no-bottom']), ' mt-24') ?><?php e($layout->class()->isNotEmpty(), ' ' . $layout->class()); ?> <?php e(in_array($layout->spacing(), ['default', 'no-top']), ' mb-12') ?>" id="<?= $layout->id() ?>">
 		<?php /*
 		col-span-1 col-span-2 col-span-3 col-span-4 col-span-5 col-span-6 col-span-7 col-span-8 col-span-9 col-span-10 col-span-11 col-span-12
 		*/ ?>

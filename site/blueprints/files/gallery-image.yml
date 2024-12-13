@@ -1,0 +1,35 @@
+title: Gallery Image
+accept:
+  extension: jpg, jpeg, png, svg
+  type: image
+
+fields:
+  obstacles:
+    label: Hindernis
+    type: tags
+    help: file.image.obstacles.help
+  categories:
+    label: Categorie
+    type: multiselect
+    options:
+      RECR14: Recreatief 14km
+      RECR8: Recreatief 8km
+      FAM8: Familierun
+      JSR8: Jeugdrun
+      TEAM14: Team 14km
+      Afbouwen: Afbouwen
+      Deelnemers: Deelnemers
+      Dorp: Dorp
+      Duikers: Duikers
+      Organisatie: Organisatie
+      Parcours: Parcours
+      Prijsuitreiking: Prijsuitreiking
+      Sfeer: Sfeer
+      Vrijwilligers: Vrijwilligers
+  creator:
+    label: Creator
+    type: text
+  alt:
+    label: file.image.alt.label
+    type: text
+    help: file.image.alt.help
