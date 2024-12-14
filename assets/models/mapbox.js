@@ -17,7 +17,7 @@ map.addControl(new mapboxgl.NavigationControl())
 map.on("style.load", () => {
 	map.addSource("afzettingen", {
 		type: "geojson",
-		data: "/assets/models/afzettingen.geojson"
+		data: "/mymaps/1QmmMflrnUFI6ERAIJWnJDUD5XLn_bzg/kmz?name=Afzettingen"
 	})
 
 	map.addLayer({
@@ -177,6 +177,33 @@ map.on("style.load", () => {
 			},
 			filter: [">=", ["index-of", route.filterValue, ["get", "lines"]], 0]
 		})
+	});
+
+	map.addSource("fietsroute", {
+		type: "geojson",
+		data: "/mymaps/1QmmMflrnUFI6ERAIJWnJDUD5XLn_bzg/kmz?name=Fietsroute",
+	});
+
+	map.addLayer({
+		id: "fietsroute",
+		type: "line",
+		source: "fietsroute",
+		layout: {
+			...commonLayout
+		},
+		metadata: {
+			name: "Fietsroute",
+			// labels: {
+			// 	[route.color]: route.filterValue,
+			// 	["#00b0e3"]: "Route 8km",
+			// 	["#ff8100"]: "Route 14km",
+			// 	["#000000"]: "Route 6km"
+			// }
+		},
+		paint: {
+			"line-color": "#00ff00",
+			"line-width": 2,
+		}
 	})
 
 	map.addSource("plein-indeling", {
@@ -232,31 +259,31 @@ map.on("style.load", () => {
 		}
 	})
 
-	map.loadImage(
-		"/assets/icons/traffic/traffic-controller-marker.png",
-		(error, image) => {
-			if (error) throw error
-			map.addImage("traffic-controller", image, { sdf: false })
-		}
-	)
+	// map.loadImage(
+	// 	"/assets/icons/traffic/traffic-controller-marker.png",
+	// 	(error, image) => {
+	// 		if (error) throw error
+	// 		map.addImage("traffic-controller", image, { sdf: false })
+	// 	}
+	// )
 
-	map.loadImage(
-		"/assets/icons/traffic/traffic-controller-marker-high-water.png",
-		(error, image) => {
-			if (error) throw error
-			map.addImage("traffic-controller-high-water", image, { sdf: false })
-		}
-	)
+	// map.loadImage(
+	// 	"/assets/icons/traffic/traffic-controller-marker-high-water.png",
+	// 	(error, image) => {
+	// 		if (error) throw error
+	// 		map.addImage("traffic-controller-high-water", image, { sdf: false })
+	// 	}
+	// )
 
 	map.loadImage("/assets/icons/traffic/c1.png", (error, image) => {
 		if (error) throw error
 		map.addImage("c1", image, { sdf: false })
 	})
 
-	map.loadImage("/assets/icons/traffic/30.png", (error, image) => {
-		if (error) throw error
-		map.addImage("speed-30", image, { sdf: false })
-	})
+	// map.loadImage("/assets/icons/traffic/30.png", (error, image) => {
+	// 	if (error) throw error
+	// 	map.addImage("speed-30", image, { sdf: false })
+	// })
 
 	map.loadImage("/assets/icons/traffic/warning.png", (error, image) => {
 		if (error) throw error
@@ -285,9 +312,9 @@ map.on("style.load", () => {
 				"match",
 				["get", "name"],
 				"Hoogwater verkeersregelaar",
-				"traffic-controller-high-water",
+				"traffic-controller-marker-high-water",
 				"Verkeersregelaar",
-				"traffic-controller",
+				"traffic-controller-marker",
 				"Verkeersbord 30km/h",
 				"speed-30",
 				"Wegafsluiting",
@@ -319,7 +346,7 @@ map.on("style.load", () => {
 	})
 
 	// Voeg een click event toe voor de popups
-	map.on("click", "traffic-controllers", function (e) {
+	map.on("click", "traffic-controllers", (e) => {
 		const coordinates = e.features[0].geometry.coordinates.slice()
 		const { name, description } = e.features[0].properties
 
@@ -330,12 +357,12 @@ map.on("style.load", () => {
 	})
 
 	// Verander de cursor naar een pointer wanneer deze over de layer gaat
-	map.on("mouseenter", "traffic-controllers", function () {
+	map.on("mouseenter", "traffic-controllers", () => {
 		map.getCanvas().style.cursor = "pointer"
 	})
 
 	// Verander de cursor terug naar normaal wanneer deze niet meer over de layer gaat
-	map.on("mouseleave", "traffic-controllers", function () {
+	map.on("mouseleave", "traffic-controllers", () => {
 		map.getCanvas().style.cursor = ""
 	})
 
@@ -358,7 +385,7 @@ map.on("style.load", () => {
 		}
 	})
 
-	map.on("click", "pionnen-paths", function (e) {
+	map.on("click", "pionnen-paths", (e) => {
 		const coordinates = e.lngLat
 		const { name, description } = e.features[0].properties
 
@@ -368,17 +395,17 @@ map.on("style.load", () => {
 			.addTo(map)
 	})
 
-	map.on("mouseenter", "traffic-controllers-layer", function () {
+	map.on("mouseenter", "traffic-controllers-layer", () => {
 		map.getCanvas().style.cursor = "pointer"
 	})
 
-	map.on("mouseenter", "pionnen-paths", function () {
+	map.on("mouseenter", "pionnen-paths", () => {
 		map.getCanvas().style.cursor = "pointer"
 	})
 
 	map.addSource("obstacles", {
 		type: "geojson",
-		data: "/assets/models/obstacles.geojson"
+		data: "/mymaps/1QmmMflrnUFI6ERAIJWnJDUD5XLn_bzg/kmz?name=Hindernissen"
 	})
 	// Voeg een laag toe om de obstacles weer te geven met cirkels
 	map.addLayer({
@@ -411,7 +438,7 @@ map.on("style.load", () => {
 	})
 
 	// Voeg een click event toe voor de popups op obstacles
-	map.on("click", "obstacles-layer", function (e) {
+	map.on("click", "obstacles-layer", (e) => {
 		const coordinates = e.features[0].geometry.coordinates.slice()
 		const { index, description } = e.features[0].properties
 
@@ -420,49 +447,66 @@ map.on("style.load", () => {
 			.setHTML(`<strong>Hindernis ${index}</strong><p>${description || ""}</p>`)
 			.addTo(map)
 	})
-	map.on("mouseenter", "obstacles-layer", function () {
+	map.on("mouseenter", "obstacles-layer", () => {
 		map.getCanvas().style.cursor = "pointer"
 	})
-	map.on("mouseleave", "obstacles-layer", function () {
+	map.on("mouseleave", "obstacles-layer", () => {
 		map.getCanvas().style.cursor = ""
 	})
 
 	const legend = new LegendControl({
 		title: "Legenda",
-		layers: {
-			// Show all properties in this layer
-			"plein-indeling-labels": {
-				toggler: ["plein-indeling-labels"],
-				collapsed: false,
-				highlight: true
-				// attributes: [],
-				// attributes: ['title', 'image-name'],
-			},
-			afzettingen: {
-				title: "Afgezet gebied",
-				collapsed: false,
-				toggler: ["afzettingen", "afzettingen-borden"],
-				highlight: true
-				// attributes: ['title', 'image-name'],
-			},
-			"route-14km": {
-				toggler: [...routes.map((route) => route.id)]
-			},
-			"traffic-controllers": {
-				title: "Verkeersregelaars",
-				collapsed: false,
-				toggler: ["traffic-controllers"]
+			layers: {
+				// Show all properties in this layer
+				"plein-indeling-labels": {
+					toggler: ["plein-indeling-labels"],
+					collapsed: false,
+					highlight: true
+					// attributes: [],
+					// attributes: ['title', 'image-name'],
+				},
+				afzettingen: {
+					title: "Afgezet gebied",
+					collapsed: false,
+					toggler: ["afzettingen", "afzettingen-borden"],
+					highlight: true
+					// attributes: ['title', 'image-name'],
+				},
+				"route-14km": {
+					toggler: [...routes.map((route) => route.id)]
+				},
+				"traffic-controllers": {
+					title: "Verkeersregelaars",
+					collapsed: false,
+					toggler: ["traffic-controllers"]
+				},
+				"fietsroute": {
+					title: "Fietsroute",
+					collapsed: false,
+					toggler: ["fietsroute"]
+				},
+				// Show only selected properties in this layer
+				// population: ['circle-radius'],
+				// // Fine grained options per layer
+				// pois: {
+				// 	collapsed: true,
+				// 	toggler: false,
+				// 	highlight: true,
+				// 	attributes: ['circle-radius'],
+				// }
 			}
-			// Show only selected properties in this layer
-			// population: ['circle-radius'],
-			// // Fine grained options per layer
-			// pois: {
-			// 	collapsed: true,
-			// 	toggler: false,
-			// 	highlight: true,
-			// 	attributes: ['circle-radius'],
-			// }
-		}
 	})
-	map.addControl(legend, "bottom-left")
+	map.addControl(legend, "bottom-left");
+
+
+	map.addControl(new MapboxExportControl.MapboxExportControl({
+		PageSize: MapboxExportControl.Size.A4,
+		PageOrientation: MapboxExportControl.PageOrientation.Portrait,
+		Format: MapboxExportControl.Format.PDF,
+		DPI: MapboxExportControl.DPI[300],
+		Crosshair: true,
+		PrintableArea: true,
+		Local: 'nl',
+		accessToken: mapboxgl.accessToken
+	}), 'top-right');
 })

@@ -30,6 +30,7 @@
     "@unseenco/taxi": "^1.7.0",
     "htmx.org": "^1.9.12",
     "lodash": "^4.17.21",
+    "photoswipe": "^5.4.4",
     "stimulus-typescript": "^0.1.3",
     "stimulus-use": "^0.52.2",
     "swiper": "^11.1.15",

@@ -4,7 +4,7 @@
 		</video>
 	<?php endif ?>
 	<div class="max-w-6xl mt-auto mx-auto text-white z-20 relative text-center mb-16 w-[90%] uppercase font-bold font-extra-expanded">
-		<h1 class="mt-auto uppercase flex flex-col text-lg md:text-xl leading-none text-shadow-lg">
+		<h1 class="mt-auto uppercase flex flex-col max-sm:text-sm text-lg md:text-xl leading-none text-shadow-lg">
 			<span class="text-[1.585em] leading-none"><?= $block->topLine(); ?></span>
 			<span class="text-[6.25em] font-black leading-none"><?= $block->middleLine(); ?></span>
 			<span class="text-[2.5em] font-black leading-[0.5]">
@@ -24,8 +24,8 @@
 		<?php if ($sponsor_url = $site->sponsor_url()) : ?>
 			<?php $sponsor_logo = $site->sponsor_logo()->toFile() ?>
 			<?php $sponsor_name = $site->sponsor_name() ?>
-			<div class="bg-white absolute flex sm:flex-col gap-x-4 top-0 -translate-y-full inset-x-4 sm:left-[inherit] sm:right-8 p-4 pb-0 rounded-t-xl sm:max-w-sm [&>a]:w-[150px] sm:[&>a]:w-[150px] lg:[&>a]:w-[200px] xl:[&>a]:w-[320px] prose">
-				<h2 class="lg:text-lg mb-2 mt-0">Trotse hoofdsponsor</h2>
+			<div class="bg-white absolute flex md:flex-col gap-x-4 top-0 -translate-y-full inset-x-4 md:left-[inherit] md:right-8 p-4 pb-0 rounded-t-xl md:max-w-sm [&>a]:w-[150px] md:[&>a]:w-[150px] lg:[&>a]:w-[200px] xl:[&>a]:w-[320px] prose">
+				<h2 class="max-sm:text-base lg:text-lg mb-2 mt-0">Trotse hoofdsponsor</h2>
 				<a class="not-prose" href="<?= $sponsor_url; ?>">
 					<?php if ($sponsor_logo) : ?>
 						<img alt="<?= $sponsor_logo->alt(); ?>" width="<?= $sponsor_logo->width(); ?>" height="<?= $sponsor_logo->height(); ?>" src="<?= $sponsor_logo->url(); ?>" />

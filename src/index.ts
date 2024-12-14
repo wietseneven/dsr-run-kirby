@@ -3,6 +3,7 @@ import { Core } from "@unseenco/taxi"
 import { Application, AttributeObserver } from "@hotwired/stimulus"
 import type { ControllerConstructor } from "@hotwired/stimulus"
 import type { Transition, Renderer } from "@unseenco/taxi"
+import { lazyLoad } from "unlazy"
 
 import.meta.glob(["../assets/**"]) // Import all assets for copying them to dist
 
@@ -10,6 +11,7 @@ declare global {
 	interface Window {
 		Stimulus: Application
 		Taxi: Core
+		galleryImages: any[]
 	}
 }
 
@@ -78,29 +80,30 @@ if (import.meta.env.DEV) {
 }
 
 // Install Taxi
-window.Taxi = new Core({
-	renderers: Object.entries(
-		import.meta.glob("./renderers/*.ts", { eager: true })
-	).reduce(
-		(acc, [key, transition]) => {
-			acc[key.slice(12, -3)] = (
-				transition as { default: typeof Renderer }
-			).default
-			return acc
-		},
-		{} as Record<string, typeof Renderer>
-	),
-	transitions: Object.entries(
-		import.meta.glob("./transitions/*.ts", { eager: true })
-	).reduce(
-		(acc, [key, transition]) => {
-			acc[key.slice(14, -3)] = (
-				transition as { default: typeof Transition }
-			).default
-			return acc
-		},
-		{} as Record<string, typeof Transition>
-	),
-	allowInterruption: true,
-	removeOldContent: false
-})
+// window.Taxi = new Core({
+// 	renderers: Object.entries(
+// 		import.meta.glob("./renderers/*.ts", { eager: true })
+// 	).reduce(
+// 		(acc, [key, transition]) => {
+// 			acc[key.slice(12, -3)] = (
+// 				transition as { default: typeof Renderer }
+// 			).default
+// 			return acc
+// 		},
+// 		{} as Record<string, typeof Renderer>
+// 	),
+// 	transitions: Object.entries(
+// 		import.meta.glob("./transitions/*.ts", { eager: true })
+// 	).reduce(
+// 		(acc, [key, transition]) => {
+// 			acc[key.slice(14, -3)] = (
+// 				transition as { default: typeof Transition }
+// 			).default
+// 			return acc
+// 		},
+// 		{} as Record<string, typeof Transition>
+// 	),
+// 	allowInterruption: true,
+// 	removeOldContent: false
+// })
+lazyLoad()

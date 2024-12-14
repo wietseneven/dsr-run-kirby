@@ -3,13 +3,14 @@
 use Kirby\Http\Remote;
 use Kirby\Filesystem\F;
 
-function parsePlacemark($placemark): array
+function parsePlacemark($placemark, $index = null): array
 {
 	$geometry = parseGeometry($placemark);
 
 	$properties = [
 		'name' => (string) $placemark->name,
 		'description' => (string) $placemark->description,
+		'index' => $index,
 		// Estrai ulteriori informazioni, come timestamp o ExtendedData se necessario
 	];
 
@@ -160,17 +161,26 @@ return [
 			foreach ($xml->Document->Folder as $folder) {
 				$marks = [];
 				$features = [];
+				$featureIndex = 0;
 				foreach ($folder->Placemark as $placemark) {
+					$featureIndex++;
 					$marks[] = array(
-						'name' => (string)$placemark->name
+						'name' => (string)$placemark->name,
 					);
-					$features[] = parsePlacemark($placemark);
+					$features[] = parsePlacemark($placemark, $featureIndex);
 				}
 				$folders[] = array(
 					'name' => (string)$folder->name,
 					'type' => 'FeatureCollection',
 					'features' => $features
 				);
+			}
+
+			if (get('name')) {
+				$folders = array_filter($folders, function ($folder) {
+					return $folder['name'] === get('name');
+				});
+				$folders = reset($folders);
 			}
 
 			return $folders;

@@ -57,12 +57,16 @@ export default {
 						},
 						h2: {
 							textTransform: "uppercase",
-							fontSize: "1.875rem",
-							lineHeight: "2.25rem",
+							fontSize: "1.35rem",
+							lineHeight: "1.75rem",
 							fontStretch: "extra-expanded",
 							fontWeight: "bold",
 							marginTop: "1.5rem",
-							marginBottom: "1rem"
+							marginBottom: "1rem",
+							"@screen sm": {
+								fontSize: "1.875rem",
+								lineHeight: "2.25rem"
+							}
 						},
 						h3: {
 							textTransform: "uppercase",

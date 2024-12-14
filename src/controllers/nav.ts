@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller<HTMLElement> {
-	static targets = ["button"]
+	static targets = ["button", "navList"]
 
 	toggleClasses = ["before:translate-y-0", "before:opacity-100"]
 	observer?: IntersectionObserver
@@ -49,5 +49,12 @@ export default class extends Controller<HTMLElement> {
 		if (link) {
 			window.location.href = link
 		}
+	}
+
+	toggle() {
+		this.navListTarget.classList.toggle("max-md:invisible")
+		this.navListTarget.classList.toggle("max-md:pointer-events-none")
+		this.navListTarget.classList.toggle("opacity-0")
+		this.navListTarget.classList.toggle("translate-y-0")
 	}
 }

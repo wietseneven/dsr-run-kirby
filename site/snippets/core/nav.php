@@ -8,8 +8,8 @@
 			<img src="<?= $asset->url() ?>" height="87" width="250" alt="Dinkel Survivalrun">
 		<?php endif ?>
 	</a>
-	<nav class="flex flex-[2] print:hidden justify-end sm:justify-center">
-		<ul class="gap-8 uppercase bg-black overflow-auto sm:overflow-visible sm:flex flex-col sm:flex-row pt-24 pb-12 sm:pb-0 sm:pt-0 sm:visible sm:opacity-100 sm:static sm:bg-transparent sm:items-center opacity-100 pointer-events-auto visible translate-y-0">
+	<nav class="flex flex-[2] print:hidden justify-end md:justify-center">
+		<ul class="max-md:fixed max-md:pointer-events-none opacity-0 -translate-y-4 transition-all duration-500 max-md:inset-0 max-md:px-8 max-md:invisible gap-8 uppercase bg-black overflow-auto md:overflow-visible md:flex flex-col md:flex-row pt-24 pb-12 md:pb-0 md:pt-0 md:visible md:opacity-100 md:static md:bg-transparent md:items-center md:pointer-events-auto md:translate-y-0" data-nav-target="navList">
 			<?php foreach ($site->children()->listed() as $child) : ?>
 				<?php $isActive = $child->isActive() ?>
 				<li class="group font-expanded">
@@ -21,7 +21,7 @@
 							</svg>
 						</button>
 
-						<ul class="transition-all px-8 sm:invisible sm:absolute sm:top-full sm:w-64 sm:bg-white sm:p-4 sm:text-black sm:rounded sm:opacity-0 sm:pointer-events-none sm:-translate-y-1 sm:drop-shadow-lg group-hover:sm:opacity-100 group-hover:sm:translate-y-0 group-hover:sm:pointer-events-auto group-hover:sm:visible">
+						<ul class="transition-all px-8 md:invisible md:absolute md:top-full md:w-64 md:bg-white md:p-4 md:text-black md:rounded md:opacity-0 md:pointer-events-none md:-translate-y-1 md:drop-shadow-lg group-hover:md:opacity-100 group-hover:md:translate-y-0 group-hover:md:pointer-events-auto group-hover:md:visible">
 							<li>
 								<a class="hover:text-dsr-orange py-2 block <?php e($child->isActive(), 'text-dsr-orange') ?>" href="<?= $child->url(); ?>">
 									<?= $child->title(); ?>
@@ -41,10 +41,10 @@
 				</li>
 			<?php endforeach ?>
 		</ul>
-		<button class="uppercase p-2 border relative rounded text-sm sm:hidden" onClick={toggleNavigation} type="button">
+		<button class="uppercase p-2 border relative rounded text-sm md:hidden" data-action="click->nav#toggle" type="button">
 			Menu
 		</button>
 	</nav>
-	<span class="sm:block flex-1 hidden"></span>
+	<span class="md:block flex-1 hidden"></span>
 </header>
 <div class="nav-sentinel" style="position: absolute; top: 10px; width: 1px; height: 1px; visibility: hidden;"><?= $page->title(); ?></div>

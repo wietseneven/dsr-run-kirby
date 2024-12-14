@@ -1,3 +1,3 @@
-<div>
-	<?php snippet('picture', ['image' => $image, 'clientBlur' => true, 'ratio' => 4 / 3]) ?>
-</div>
+<a href="<?= $image->url() ?>" data-id="<?= $index ?>">
+	<?php snippet('picture', ['image' => $image, 'ratio' => 4 / 3]) ?>
+</a>

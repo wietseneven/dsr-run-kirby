@@ -24,8 +24,11 @@
 						<span class="text-sm font-normal"><?= $sponsor->name() ?></span>
 					</a>
 				<?php else : ?>
-					<?php snippet('picture', ['image' => $image, 'class' => 'mb-2 mx-auto w-full max-w-52', 'imgClass' => 'mx-auto']) ?>
-					<span class="text-sm font-normal"><?= $sponsor->name() ?></span>
+					<div class="flex flex-col justify-between h-full">
+						<span></span>
+						<?php snippet('picture', ['image' => $image, 'class' => 'mb-2 mx-auto w-full max-w-52', 'imgClass' => 'mx-auto']) ?>
+						<span class="text-sm font-normal"><?= $sponsor->name() ?></span>
+					</div>
 				<?php endif ?>
 			</li>
 		<?php endforeach ?>
